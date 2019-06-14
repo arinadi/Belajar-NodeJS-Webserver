@@ -25,19 +25,13 @@ const server = http.createServer((req, res) => {
             const msg = parsedBody.split('=')[1];
             console.log(msg);
             //Write File
-            fs.writeFileSync('msg.txt', msg);
+            fs.writeFile('msg.txt', msg, err => {
+                //Redirect
+                res.statusCode = 302;
+                res.setHeader("Location", "/");
+                return res.end();
+            });
         });
-
-        //Redirect
-        res.statusCode = 302;
-        res.setHeader("Location", "/");
-
-        // res.setHeader("Content-Type", "text/html");
-        // res.write(`<html>`);
-        // res.write(`<title>MSG</title>`);
-        // res.write(`<b>Halo, Method is ${req.method} </b>`);
-        // res.write(`</html>`);
-        return res.end();
     }
 
     res.setHeader("Content-Type", "text/html");
