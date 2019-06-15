@@ -7,12 +7,16 @@ const express = require('express');
 
 const app = express();
 
-app.use((req, res, next) => {
-    console.log("masuk");
+app.use('/', (req, res, next) => {
+    console.log("always run");
     next(); //next process
 });
-app.use((req, res, next) => {
-    console.log("masuk lagi");
+app.use('/create-user', (req, res, next) => {
+    console.log("masuk "+req.url);
+    res.send(`Page "Add User"`); //simple response
+});
+app.use('/',(req, res, next) => {
+    console.log("masuk "+req.url);
     res.send(`Halo dari expressJS`); //simple response
 });
 
