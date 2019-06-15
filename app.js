@@ -1,12 +1,12 @@
-const fs = require('fs');
-
+//Core
 const http = require('http');
-const routes = require('./routes');
+//3rd
+const express = require('express');
+//External
+// const routes = require('../routes');
 
-console.log(routes.someText);
-
-const server = http.createServer(routes.handler);
-
+const app = express();
+const server = http.createServer(app);
 const port = 3000;
 
 // RUN

@@ -18,7 +18,10 @@
     "url": "https://github.com/arinadi/Belajar-NodeJS-Webserver/issues"
   },
   "homepage": "https://github.com/arinadi/Belajar-NodeJS-Webserver#readme",
-  "dependencies": {
+  "devDependencies": {
     "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
