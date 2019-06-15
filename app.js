@@ -1,5 +1,5 @@
 //Core
-const http = require('http');
+// const http = require('http');
 //3rd
 const express = require('express');
 //External
@@ -16,8 +16,11 @@ app.use((req, res, next) => {
     res.send(`Halo dari expressJS`); //simple response
 });
 
-const server = http.createServer(app);
+// const server = http.createServer(app);
 const port = 3000;
 
-// RUN
-server.listen(port);
+// RUN by NodeJS
+// server.listen(port);
+
+// RUN by ExpressJS
+app.listen(port);
