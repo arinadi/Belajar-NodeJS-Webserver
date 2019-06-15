@@ -2,22 +2,26 @@
 // const http = require('http');
 //3rd
 const express = require('express');
+const bodyParser = require('body-parser');
 //External
 // const routes = require('../routes');
 
 const app = express();
 
-app.use('/', (req, res, next) => {
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use((req, res, next) => {
     console.log("always run");
     next(); //next process
 });
-app.use('/create-user', (req, res, next) => {
-    console.log("masuk "+req.url);
-    res.send(`Page "Add User"`); //simple response
+app.use('/message', (req, res, next) => {
+    console.log("masuk "+req.baseUrl);
+    console.log(req.body);
+    res.redirect('/'); //simple response
 });
 app.use('/',(req, res, next) => {
-    console.log("masuk "+req.url);
-    res.send(`Halo dari expressJS`); //simple response
+    console.log("masuk "+req.baseUrl);
+    res.send(`<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>`); //simple response
 });
 
 // const server = http.createServer(app);
