@@ -6,6 +6,16 @@ const express = require('express');
 // const routes = require('../routes');
 
 const app = express();
+
+app.use((req, res, next) => {
+    console.log("masuk");
+    next(); //next process
+});
+app.use((req, res, next) => {
+    console.log("masuk lagi");
+    res.send(`Halo dari expressJS`); //simple response
+});
+
 const server = http.createServer(app);
 const port = 3000;
 
