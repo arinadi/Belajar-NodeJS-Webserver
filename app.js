@@ -14,11 +14,19 @@ app.use((req, res, next) => {
     console.log("always run");
     next(); //next process
 });
-app.use('/message', (req, res, next) => {
+
+// Filter Request :
+// .use : all 
+// .post
+// .get
+// .put
+// .delete
+app.post('/message', (req, res, next) => {
     console.log("masuk "+req.baseUrl);
     console.log(req.body);
     res.redirect('/'); //simple response
 });
+
 app.use('/',(req, res, next) => {
     console.log("masuk "+req.baseUrl);
     res.send(`<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>`); //simple response
