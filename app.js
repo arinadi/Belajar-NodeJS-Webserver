@@ -1,12 +1,12 @@
 //Core
 // const http = require('http');
 const path = require('path');
-const pathView = path.join(__dirname, '..', 'views');
 
 //3rd
 const express = require('express');
 const bodyParser = require('body-parser');
 //External
+const sysPath = require('./helper/path');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(pathView, '404.html'));
+    res.status(404).sendFile(path.join(sysPath.path_views, '404.html'));
 });
 
 // Filter Request :

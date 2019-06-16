@@ -1,7 +1,8 @@
 const path = require('path');
-const pathView = path.join(__dirname, '..', 'views');
 
 const express = require('express');
+
+const sysPath = require('../helper/path');
 
 const router = express.Router();
 
@@ -13,7 +14,7 @@ router.post('/add-product', (req, res, next) => {
 
 router.get('/add-product',(req, res, next) => {
     console.log("masuk "+req.baseUrl);
-    res.sendFile(path.join(pathView, 'add-product.html')); //simple response
+    res.sendFile(path.join(sysPath.path_views, 'add-product.html')); //simple response
 });
 
 
