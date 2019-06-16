@@ -14,6 +14,9 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//OPEN PUBLIC DIR
+app.use(express.static(path.join(sysPath.root_dir, 'public')));
+
 app.use('/admin',adminRoutes);
 app.use(shopRoutes);
 
