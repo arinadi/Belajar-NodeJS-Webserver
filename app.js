@@ -1,5 +1,8 @@
 //Core
 // const http = require('http');
+const path = require('path');
+const pathView = path.join(__dirname, '..', 'views');
+
 //3rd
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -20,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-    res.status(404).send("404 : Page Not Found");
+    res.status(404).sendFile(path.join(pathView, '404.html'));
 });
 
 // Filter Request :
