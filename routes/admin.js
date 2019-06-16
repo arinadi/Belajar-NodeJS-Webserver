@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-router.post('/product', (req, res, next) => {
+router.post('/add-product', (req, res, next) => {
     console.log("masuk "+req.baseUrl);
     console.log(req.body);
     res.redirect('/'); //simple response
@@ -10,7 +10,7 @@ router.post('/product', (req, res, next) => {
 
 router.get('/add-product',(req, res, next) => {
     console.log("masuk "+req.baseUrl);
-    res.send(`<form action="/product" method="POST"><input type="text" name="name"><button type="submit">Send</button></form>`); //simple response
+    res.send(`<form action="/admin/add-product" method="POST"><input type="text" name="name"><button type="submit">Send</button></form>`); //simple response
 });
 
 
