@@ -19,6 +19,10 @@ app.use((req, res, next) => {
     next(); //next process
 });
 
+app.use((req, res, next) => {
+    res.status(404).send("404 : Page Not Found");
+});
+
 // Filter Request :
 // .use : all 
 // .post
