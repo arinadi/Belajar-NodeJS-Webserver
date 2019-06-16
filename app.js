@@ -4,11 +4,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 //External
-// const routes = require('../routes');
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(adminRoutes);
+app.use(shopRoutes);
 
 app.use((req, res, next) => {
     console.log("always run");
@@ -21,16 +25,6 @@ app.use((req, res, next) => {
 // .get
 // .put
 // .delete
-app.post('/message', (req, res, next) => {
-    console.log("masuk "+req.baseUrl);
-    console.log(req.body);
-    res.redirect('/'); //simple response
-});
-
-app.use('/',(req, res, next) => {
-    console.log("masuk "+req.baseUrl);
-    res.send(`<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>`); //simple response
-});
 
 // const server = http.createServer(app);
 const port = 3000;
