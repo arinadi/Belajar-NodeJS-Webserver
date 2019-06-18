@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/arinadi/Belajar-NodeJS-Webserver#readme",
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "standard": "^12.0.1"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
