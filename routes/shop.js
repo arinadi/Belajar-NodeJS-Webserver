@@ -1,16 +1,21 @@
 const path = require('path');
 
-// console.log(path.join(pathView, 'test.html'));
-
 const express = require('express');
 
-const sysPath = require('../helper/path');
+const adminData = require('./admin');
 
 const router = express.Router();
 
-router.get('/',(req, res, next) => {
-    console.log("masuk "+req.baseUrl);
-    res.sendFile(path.join(sysPath.path_views, 'shop.html')); //simple response
+router.get('/', (req, res, next) => {
+  const products = adminData.products;
+  res.render('shop', {
+    prods: products,
+    pageTitle: 'Shop',
+    path: '/',
+    hasProducts: products.length > 0,
+    activeShop: true,
+    productCSS: true
+  });
 });
 
 module.exports = router;
